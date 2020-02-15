@@ -17,3 +17,6 @@ clonning youtube with Vanila Javascript and nodeJS
    - 싱글 쓰레드
     : 싱글 쓰레드 기반(non blocking, 이벤트 루프 구조)으로 일반적인 요청은 아파치와 같은 멀티 쓰레드 기반 구조보다 빠르게 처리 가능하며
       이벤트 루프를 통해 서버를 다양하게 확장 가능함, 그러나 CPU 자원소모가 많은 무거운 요청같은경우엔 성능이 떨어질 수 있다.
+      
+ 3. express
+  1) node.js로 쉽게 서버 구성이 가능하도록 도와주는 프레임워크
