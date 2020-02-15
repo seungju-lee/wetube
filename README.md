@@ -5,6 +5,9 @@ clonning youtube with Vanila Javascript and nodeJS
 1. NPM
  1) 자바스크립트 언어(자바스크립트 런타임 환경 node.js)를 위한 패키지 관리자
  2) 설치하면 node.js 같이 설치
+ 3) package.js
+   - 설치된 npm 관련 설정 정보, 해당 파일만 있으면 다른 프로젝트에서도 빠르게 동일 환경 구성 가능
+ 
 
 2. node.js
  1) 브라우저 밖에서도 자바스크립트가 구동이 가능하도록 만든 자바스크립트 런타임
@@ -20,3 +23,15 @@ clonning youtube with Vanila Javascript and nodeJS
       
  3. express
   1) node.js로 쉽게 서버 구성이 가능하도록 도와주는 프레임워크
+  2) 추가 사용 패키지
+    - cookie-parser : 쿠키 사용 위한
+    - body-parser : 다양한 요청 해석을 위한(json, url 등)
+    - helmet : 보안 관련 
+    - morgan : 로그 기능
+    
+ 4. babel
+  1) 자바스크립트가 es6로 오면서 많은 변화가 있었으나 브라우저 환경이 지원하지 못하는 문제를 해결하기위해 다양한 브라우저가 해석 가능하도록
+    (es5 이하?) 코드 변환해주는 라이브러리
+  2) babel/preset-env : 실제로 바벨이 동작하는것은 해당 preset이 실행함
+  3) babellrc : 바벨 정보
+
