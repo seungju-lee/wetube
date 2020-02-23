@@ -28,3 +28,14 @@ clonning youtube with Vanila Javascript and nodeJS
 ## PAGES
 
 - [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
+- [ ] Home
