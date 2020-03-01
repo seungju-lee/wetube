@@ -1,4 +1,4 @@
-import { videos } from "../db";
+import "../db";
 import routes from "../routes";
 
 export const getLogin = (req, res) =>

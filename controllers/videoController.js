@@ -1,8 +1,15 @@
-import { videos } from "../db";
+import "../db";
 import routes from "../routes";
+import Video from "../models/Video";
 
-export const home = (req, res) => {
-  res.render("home", { pageTitle: "Home", videos });
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", videos: [] });
+  }
 };
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = (req, res) => {
@@ -20,16 +27,31 @@ export const postJoin = (req, res) => {
 
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   const {
-    body: { videoFile, title, description }
+    body: { title, description },
+    file: { path }
   } = req;
-  //To do : Upload and save
-  res.redirect(routes.video_detail(12345));
+  const newVideo = await Video.create({
+    fileUrl: path,
+    title,
+    description
+  });
+  console.log(newVideo);
+  res.redirect(routes.video_detail(newVideo.id));
 };
 
-export const video_detail = (req, res) =>
-  res.render("video_detail", { pageTitle: "Video Detail" });
+export const video_detail = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    res.render("video_detail", { pageTitle: "Video Detail", video });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 export const edit_video = (req, res) =>
   res.render("edit_video", { pageTitle: "Edit Video" });
 export const delete_video = (req, res) =>
