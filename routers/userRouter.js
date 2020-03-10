@@ -2,16 +2,17 @@ import express from "express";
 import routes from "../routes";
 import {
   users,
-  user_detail,
-  change_password,
-  edit_profile
+  editProfile,
+  changePassword,
+  userDetail
 } from "../controllers/userController";
 
+// eslint-disable-next-line new-cap
 const userRouter = express.Router();
 
 userRouter.get(routes.users, users);
-userRouter.get(routes.edit_profile, edit_profile);
-userRouter.get(routes.change_password, change_password);
-userRouter.get(routes.user_detail(), user_detail);
+userRouter.get(routes.edit_profile, editProfile);
+userRouter.get(routes.change_password, changePassword);
+userRouter.get(routes.user_detail(), userDetail);
 
 export default userRouter;

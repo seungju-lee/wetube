@@ -5,10 +5,13 @@ block contents
     .search__header
         h3 search : #{searchByTerm}!
     .search__videos
-         each video in videos
-            + videoBlock({
-                id : video.id,
-                title : video.title,
-                views : video.views,
-                videoFile : video.videoFile
-            })
+        if videos.length === 0
+            p there is no videos!!
+        else
+            each video in videos
+                + videoBlock({
+                    id : video.id,
+                    title : video.title,
+                    views : video.views,
+                    videoFile : video.videoFile
+                })

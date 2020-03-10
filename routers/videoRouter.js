@@ -1,21 +1,26 @@
 import express from "express";
 import routes from "../routes";
 import {
-  edit_video,
-  delete_video,
-  video_detail,
   postUpload,
-  getUpload
+  getUpload,
+  getEditVideo,
+  postEditVideo,
+  videoDetail,
+  deleteVideo
 } from "../controllers/videoController";
 import { uploadVideo } from "../middlewares";
 
+// eslint-disable-next-line new-cap
 const videoRouter = express.Router();
 
 videoRouter.get(routes.upload, getUpload);
 videoRouter.post(routes.upload, uploadVideo, postUpload);
 
-videoRouter.get(routes.video_detail(), video_detail);
-videoRouter.get(routes.edit_video, edit_video);
-videoRouter.get(routes.delete_video, delete_video);
+videoRouter.get(routes.video_detail(), videoDetail);
+
+videoRouter.get(routes.edit_video(), getEditVideo);
+videoRouter.post(routes.edit_video(), postEditVideo);
+
+videoRouter.get(routes.delete_video(), deleteVideo);
 
 export default videoRouter;
