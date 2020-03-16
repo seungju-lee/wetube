@@ -1,6 +1,7 @@
 import "../db";
 import routes from "../routes";
 import Video from "../models/Video";
+import User from "../models/User";
 
 export const home = async (req, res) => {
   try {
@@ -12,7 +13,7 @@ export const home = async (req, res) => {
   }
 };
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
-export const postJoin = (req, res) => {
+export const postJoin = async (req, res, next) => {
   console.log(req.body);
   const {
     body: { name, email, password, password2 }
@@ -21,7 +22,17 @@ export const postJoin = (req, res) => {
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
-    res.redirect(routes.home);
+    try {
+      const user = await User({
+        name,
+        email
+      });
+      await User.register(user, password);
+      next();
+    } catch (error) {
+      console.log(error);
+      res.redirect(routes.home);
+    }
   }
 };
 

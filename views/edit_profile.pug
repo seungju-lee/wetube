@@ -1,11 +1,13 @@
 extends layouts/main 
 
 block contents
-    .form-container
+    .form__container
         form(action=`/users${routes.edit_profile}`, method="post")
-            label(for="avengers") Avengers
-            input(type="file", id="avengers", name="avengers")
+            .fileUpload
+                label(for="avengers") Avengers
+                input(type="file", id="avengers", name="avengers")
             input(type="text", placeholder="Name", name="name")
             input(type="email", placeholder="Email", name="email")
             input(type="submit", value="Change Profile")
-        a.form-container__link(href=`/users${routes.change_password}`) Change Password
+        a.form-container__link(href=`/users${routes.change_password}`) 
+            button.change Change Password
