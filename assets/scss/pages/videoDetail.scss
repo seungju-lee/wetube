@@ -10,9 +10,15 @@
       width: 120px;
       margin-bottom: 25px;
     }
+    .video__author {
+      a {
+        color: #3498db;
+      }
+    }
     .video__title,
     .video__view,
-    .video_description {
+    .video__description,
+    .video__author {
       margin: 15px;
     }
     .video__title {
