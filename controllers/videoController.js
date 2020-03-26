@@ -150,3 +150,18 @@ export const postAddComment = async (req, res) => {
     res.end();
   }
 };
+
+export const postDeleteComment = (req, res)=>{
+  const {
+    params: { id },
+    body: { comment },
+    user
+  } = req;
+  try{
+
+  }catch(error){
+    res.status(400);
+  }finally{
+    res.end();
+  }
+}
