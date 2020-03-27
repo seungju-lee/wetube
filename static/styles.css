@@ -599,6 +599,14 @@ button {
                 border-bottom-left-radius: 0px; }
         .video-detail__container .video__comments .video__comments-list li:not(:last-child) {
           margin-bottom: 15px; }
+    .video-detail__container .video__comments .delete__comment {
+      width: 30px !important;
+      display: inline-block;
+      margin-left: 10px;
+      border: 1px;
+      background-color: #bb2f2a;
+      color: white;
+      font-size: 10px; }
 
 .user-profile {
   width: 100%;

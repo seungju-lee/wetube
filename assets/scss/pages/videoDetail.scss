@@ -57,5 +57,14 @@
         }
       }
     }
+    .delete__comment{
+      width: 30px !important;
+      display: inline-block;
+      margin-left: 10px;
+      border: 1px;
+      background-color: $dark-red;
+      color: white;
+      font-size: 10px;
+    }
   }
 }

@@ -134,10 +134,11 @@ export const postAddComment = async (req, res) => {
     body: { comment },
     user
   } = req;
+  let newComment;
   try {
     
     const video = await Video.findById(id);
-    const newComment = await Comment.create({
+    newComment = await Comment.create({
       text: comment,
       creator: user.id
     });
@@ -147,18 +148,17 @@ export const postAddComment = async (req, res) => {
   } catch (error) {
     res.status(400);
   } finally {
-    res.end();
+    res.send(newComment.id);
   }
 };
 
-export const postDeleteComment = (req, res)=>{
-  const {
-    params: { id },
-    body: { comment },
+export const postDeleteComment = async (req, res)=>{
+  const {    
+    body: { id },
     user
   } = req;
-  try{
-
+  try{    
+    const comment = await Comment.remove({_id: id}); 
   }catch(error){
     res.status(400);
   }finally{
